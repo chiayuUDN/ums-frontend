@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue'
+import lineChart from './echarts/lineChart.vue';
+import barChart from './echarts/barChart.vue';
 
 defineProps({
   msg: String,
@@ -31,6 +33,8 @@ const count = ref(0)
     in your IDE for a better DX
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <lineChart></lineChart>
+  <barChart></barChart>
 </template>
 
 <style scoped>
