@@ -9,16 +9,19 @@ npm i
 前端版面
 
 # plugin
-引用方式: import 'bootstrap/dist/css/bootstrap.min.css';
+## 安裝bootstrap
 ```
 npm i bootstrap 
 ```
-引用方式: import 'bootstrap-icons/font/bootstrap-icons.css';
+引用方式: import 'bootstrap/dist/css/bootstrap.min.css';
+## 安裝bootstrap-icons
 ```
 npm i bootstrap-icons
 ```
+引用方式: import 'bootstrap-icons/font/bootstrap-icons.css';
 
 # plugin dev
+## 安裝sass
 ```
 npm i sass -D
 ```
