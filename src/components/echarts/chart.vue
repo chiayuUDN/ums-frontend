@@ -11,21 +11,14 @@ export default {
         // 設定圖形寬高
         size: Object
     },
-    data() {
-        return {
-            chartObj: null,
-        }
-    },
     methods: {
         initChart() {
-            if(this.chartObj) echarts.dispose(this.chartObj);
-
             // 初始化圖表，指定容器
-            this.chartObj = echarts.init(this.$refs.chart); 
+            var chartObj = echarts.init(this.$refs.chart); 
             // 設置圖表的配置選項和數據
-            this.chartObj.setOption(this.option);
+            chartObj.setOption(this.option);
             window.addEventListener('resize', function() {
-                this.chart.resize();
+                chartObj.resize();
             });
         },
     },
