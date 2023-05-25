@@ -1,25 +1,20 @@
 <template>
-    <div class="hello-world">
-      <div class="box">
-          <i class="bi bi-person-check"></i>
-          <i class="bi bi-bag-check-fill"></i>
-          <i class="bi bi-ui-checks"></i>
-          <button type="button" class="btn btn-primary">Primary</button>
-      </div>
-    </div>
-  
-    <lineChart></lineChart>
-    <barChart></barChart>
-    <pieChart></pieChart>
+    <lineChart :data="data_array[0]"></lineChart>
+    <areaChart :data="data_array[0]"></areaChart>
+    <barChart :data="data_array[0]"></barChart>
+    <pieChart :data="data_array[0]"></pieChart>
 </template>
 <script>
 import lineChart from './echarts/lineChart.vue';
+import areaChart from './echarts/areaChart.vue';
 import barChart from './echarts/barChart.vue';
 import pieChart from './echarts/pieChart.vue';
+import dayjson from './jsonData/day/InsightX Content.json';
 
 export default {
     components: {
         lineChart,
+        areaChart,
         barChart,
         pieChart
     },
@@ -28,19 +23,19 @@ export default {
     },
     data() {
         return {
-            count: 0
+            data_array: null
         }
+    },
+    created() {
+        this.data_array = [
+            {
+                "2023-04-01": "4946",
+                "2023-04-02": "4575",
+                "2023-04-03": "4580",
+                "2023-04-04": "4991",
+                "2023-04-05": "4857"
+            }
+        ];
     }
-
 }
 </script>
-
-<style lang="scss" scoped>
-    .hello-world {
-        .box {
-            width: 400px;
-            height: 200px;
-            background-color: aquamarine;
-        }
-    }
-</style>

@@ -6,83 +6,47 @@
 import chart from './chart.vue';
 
 export default {
-    components: { chart },
-    data() {
-        return {
-            option: {},
-        }
+    props: {
+        data: Object,
     },
-    created() {
-        this.option = {
-            title: {
-                left: 'center',
-                text: 'Stacked Bar'
-            },
-            tooltip: {
-                trigger: 'axis'
-            },
-            legend: {
-                top: 30,
-                data: ['Email', 'Union Ads', 'Video Ads', 'Direct', 'Search Engine']
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            toolbox: {
-                feature: {
-                saveAsImage: {}
-                }
-            },
-            xAxis: {
-                type: 'category',
-                boundaryGap: false,
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [
-                {
-                name: 'Email',
-                type: 'bar',
-                stack: 'Total',
-                data: [120, 132, 101, 134, 90, 230, 210]
+    components: { chart },
+    computed: {
+        names() {
+            return Object.keys(this.data);
+        },
+        values() {
+            return Object.values(this.data);
+        },
+        option() {
+            return {
+                title: {
+                    text: '柱狀圖示例',
+                    subtext: '銷售數據',
+                    left: 'center',
                 },
-                {
-                name: 'Union Ads',
-                type: 'bar',
-                stack: 'Total',
-                data: [220, 182, 191, 234, 290, 330, 310]
+                tooltip: {
+
                 },
-                {
-                name: 'Video Ads',
-                type: 'bar',
-                stack: 'Total',
-                data: [150, 232, 201, 154, 190, 330, 410]
+                legend: {
+                    orient: 'vertical',
+                    left: 'left'
                 },
-                {
-                name: 'Direct',
-                type: 'bar',
-                stack: 'Total',
-                data: [320, 332, 301, 334, 390, 330, 320]
+                xAxis: {
+                    type: 'category',
+                    data: this.names
                 },
-                {
-                name: 'Search Engine',
-                type: 'bar',
-                stack: 'Total',
-                data: [820, 932, 901, 934, 1290, 1330, 1320]
-                }
-            ]
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        type: 'bar',
+                        name: 'test1',
+                        data: this.values
+                    }
+                ]
+            }
         }
     }
 }
 </script>
-<style lang="scss" scoped>
-    .bar-chart {
-        width: 100%;
-        height: 400px;
-    }
-</style>
