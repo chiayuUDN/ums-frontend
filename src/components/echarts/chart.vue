@@ -7,28 +7,37 @@ import * as echarts from 'echarts';
 export default {
     props: {
         // 圖形參數
-        option: Object,
+        option: {
+            type: Object,
+            default: () => {}
+        },
         // 設定圖形寬高
         size: Object
+    },
+    data() {
+        return {
+            chartX: null
+        }
     },
     methods: {
         initChart() {
             // 初始化圖表，指定容器
-            var chartObj = echarts.init(this.$refs.chart); 
+            var drawChart = echarts.init(this.$refs.chart);
+            
             // 設置圖表的配置選項和數據
-            chartObj.setOption(this.option);
+            drawChart.setOption(this.option);
             window.addEventListener('resize', function() {
-                chartObj.resize();
+                drawChart.resize();
             });
-        },
-    },
-    mounted() {
-        this.initChart();
+        }
     },
     watch: {
         option() {
             this.initChart();
         }
+    },
+    mounted() {
+        this.initChart();
     }
 }
 </script>

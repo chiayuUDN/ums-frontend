@@ -1,8 +1,10 @@
 <template>
-    <lineChart :data="data_array[0]"></lineChart>
-    <areaChart :data="data_array[0]"></areaChart>
-    <barChart :data="data_array[0]"></barChart>
-    <pieChart :data="data_array[0]"></pieChart>
+    <div class="section">
+        <lineChart :data="data_array[0]"></lineChart>
+        <areaChart :data="data_array[0]"></areaChart>
+        <barChart :data="data_array[0]"></barChart>
+        <pieChart :data="data_array[0]"></pieChart>
+    </div>
 </template>
 <script>
 import lineChart from './echarts/lineChart.vue';
@@ -39,3 +41,9 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+    .section {
+        display: flex;
+        flex-wrap: wrap;
+    }
+</style>
